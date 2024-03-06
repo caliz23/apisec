@@ -1,0 +1,49 @@
+## Documentación de la clase `BaseDatos`
+
+Esta clase pertenece al namespace `Core` y se encarga de la conexión y gestión de operaciones con una base de datos PostgreSQL.
+
+**Atributos:**
+
+* `$servidor`: String que contiene el nombre del servidor de la base de datos.
+* `$puerto`: String que contiene el puerto del servidor de la base de datos.
+* `$usuario`: String que contiene el nombre de usuario para la conexión a la base de datos.
+* `$password`: String que contiene la contraseña para la conexión a la base de datos.
+* `$basedatos`: String que contiene el nombre de la base de datos a la que se conectará.
+* `$link`: Objeto de tipo `resource` que representa la conexión a la base de datos.
+* `$mensaje`: String que contiene un mensaje informativo sobre la conexión a la base de datos.
+* `$conectado`: Booleano que indica si la conexión a la base de datos es exitosa.
+* `$log`: String que contiene un registro de las operaciones realizadas en la base de datos (opcional).
+
+**Métodos:**
+
+* **`__construct`():** Constructor de la clase. Inicializa los atributos de la clase y establece la conexión a la base de datos.
+* **`getInstance`():** Método estático que retorna una instancia de la clase `BaseDatos`.
+* **`insertar_datos`():** Inserta un nuevo registro en la tabla especificada.
+* **`actualizar_datos`():** Actualiza los datos de un registro en la tabla especificada.
+* **`eliminar_datos`():** Elimina un registro de la tabla especificada.
+* **`existe`():** Verifica si existe un registro en la tabla especificada que coincida con los campos y valores dados.
+* **`desconectar`():** Cierra la conexión a la base de datos.
+
+**Parámetros de los métodos:**
+
+* `$arreglo`: Arreglo que contiene los parámetros específicos de cada método.
+* `$numcampos`: Número de campos que se van a procesar.
+* `$nombretabla`: Nombre de la tabla en la que se realizará la operación.
+* `$campoX`: Nombre del campo X.
+* `$valorX`: Valor del campo X.
+
+**Retorno de los métodos:**
+
+* `true`: Si la operación se realiza exitosamente.
+* `false`: Si la operación falla.
+* `resource`: Objeto que representa la conexión a la base de datos.
+* `String`: Mensaje informativo sobre la operación realizada.
+
+**Observaciones:**
+
+* Se utilizan sentencias SQL preparadas para evitar la inyección SQL.
+* El código asume que los nombres de los campos en la base de datos coinciden exactamente con los nombres de los índices en los arreglos.
+* Se podrían agregar validaciones a los datos de entrada para mejorar la robustez del código.
+* Se podrían mejorar los mensajes de error para proporcionar información más específica al usuario.
+* Se podría implementar un sistema de log más completo para registrar las operaciones realizadas en la base de datos.
+* Se Implementa en la Clase Modelos en el Namespace Models
